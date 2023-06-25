@@ -1,10 +1,10 @@
-#include "Chat.h"
+п»ї#include "Chat.h"
 #include "consts.h"
 
 Chat::Chat(){}
 Chat::~Chat() {}
 
-// функция которая частично фиксит неправильнный ввод пользователя
+// С„СѓРЅРєС†РёСЏ РєРѕС‚РѕСЂР°СЏ С‡Р°СЃС‚РёС‡РЅРѕ С„РёРєСЃРёС‚ РЅРµРїСЂР°РІРёР»СЊРЅРЅС‹Р№ РІРІРѕРґ РїРѕР»СЊР·РѕРІР°С‚РµР»СЏ
 void checkInput(int& menu, int screen)
 {
     if (std::cin.fail())
@@ -70,16 +70,16 @@ void Chat::startChat()
             std::cout << "Login:\n";
             std::cout << "input Login > "; std::cin >> _login;
             if (isUserExist(_login) == -1)
-            {   // если пользователя не существует, предлагаем зарегистрироваться
+            {   // РµСЃР»Рё РїРѕР»СЊР·РѕРІР°С‚РµР»СЏ РЅРµ СЃСѓС‰РµСЃС‚РІСѓРµС‚, РїСЂРµРґР»Р°РіР°РµРј Р·Р°СЂРµРіРёСЃС‚СЂРёСЂРѕРІР°С‚СЊСЃСЏ
                 std::cout << "User " << _login << " dosn't exist enter name and password to registration:\n";
                 std::cout << "input Name > "; std::cin >> _name;
                 std::cout << "input Password > "; std::cin >> _password;
                 createUser(std::make_shared<User>(_name, _login, _password));
-                // авто вход
+                // Р°РІС‚Рѕ РІС…РѕРґ
                 login(_login, _password);
             }
-            else // если пользователь уже существует то просим войти
-            {    // приветствуем пользователя по имени
+            else // РµСЃР»Рё РїРѕР»СЊР·РѕРІР°С‚РµР»СЊ СѓР¶Рµ СЃСѓС‰РµСЃС‚РІСѓРµС‚ С‚Рѕ РїСЂРѕСЃРёРј РІРѕР№С‚Рё
+            {    // РїСЂРёРІРµС‚СЃС‚РІСѓРµРј РїРѕР»СЊР·РѕРІР°С‚РµР»СЏ РїРѕ РёРјРµРЅРё
                 std::cout << "Hello, " << getUserByLogin(_login)->getName() << "\n";
                 while (!login(_login, _password))
                 {
@@ -93,16 +93,16 @@ void Chat::startChat()
 
             std::cout << "Registration:\n";
             std::cout << "input Login > "; std::cin >> _login;
-            if (isUserExist(_login) == -1) // если пользователя нету то регистрация
+            if (isUserExist(_login) == -1) // РµСЃР»Рё РїРѕР»СЊР·РѕРІР°С‚РµР»СЏ РЅРµС‚Сѓ С‚Рѕ СЂРµРіРёСЃС‚СЂР°С†РёСЏ
             {
                 std::cout << "input Name > "; std::cin >> _name;
                 std::cout << "input Password > "; std::cin >> _password;
                 createUser(std::make_shared<User>(_name, _login, _password));
-                // авто вход
+                // Р°РІС‚Рѕ РІС…РѕРґ
                 login(_login, _password);
             }
-            else // если пользователь уже существует то просим войти
-            {    // приветствуем пользователя по имени
+            else // РµСЃР»Рё РїРѕР»СЊР·РѕРІР°С‚РµР»СЊ СѓР¶Рµ СЃСѓС‰РµСЃС‚РІСѓРµС‚ С‚Рѕ РїСЂРѕСЃРёРј РІРѕР№С‚Рё
+            {    // РїСЂРёРІРµС‚СЃС‚РІСѓРµРј РїРѕР»СЊР·РѕРІР°С‚РµР»СЏ РїРѕ РёРјРµРЅРё
                 std::cout << "Hello, " << getUserByLogin(_login)->getName() << "\n";
                 while (!login(_login, _password))
                 {
@@ -137,8 +137,8 @@ void Chat::startChat()
             case 2: _menuState = MENU_SELECT_USER_SCREEN; break;
             case 3: logOff(); _menuState = MENU_FIRST_SCREEN; break;
             case 4: _menuState = MENU_CHAT_UDP_NETWORK; break;
-            case MENU_CHAT_ADMIN_SCREEN: break; // удаление пользователей
-            case MENU_CHAT_ADMIN_SHOW_ALL_MESSAGES: break; // все сообщения
+            case MENU_CHAT_ADMIN_SCREEN: break; // СѓРґР°Р»РµРЅРёРµ РїРѕР»СЊР·РѕРІР°С‚РµР»РµР№
+            case MENU_CHAT_ADMIN_SHOW_ALL_MESSAGES: break; // РІСЃРµ СЃРѕРѕР±С‰РµРЅРёСЏ
             default: _menuState = MENU_CHAT_SCREEN; break;
             }
             break;
@@ -180,8 +180,8 @@ void Chat::startChat()
             case 1:
 
                 std::cout << "input message > ";
-                std::getline(std::cin >> std::ws, _msg); // ввод сообщения с пробелами
-                // отправка сообщения выбранному пользователю chatWithUserName
+                std::getline(std::cin >> std::ws, _msg); // РІРІРѕРґ СЃРѕРѕР±С‰РµРЅРёСЏ СЃ РїСЂРѕР±РµР»Р°РјРё
+                // РѕС‚РїСЂР°РІРєР° СЃРѕРѕР±С‰РµРЅРёСЏ РІС‹Р±СЂР°РЅРЅРѕРјСѓ РїРѕР»СЊР·РѕРІР°С‚РµР»СЋ chatWithUserName
                 sendMessage(getUserByLogin(chatWithUserLogin), std::make_shared<Message>(getCurrentUserLogin(), chatWithUserLogin, _msg));
                 _menuState = MENU_CHAT_WITH_SCREEN;
 
@@ -207,8 +207,8 @@ void Chat::startChat()
             case 1:
 
                 std::cout << "input message > ";
-                std::getline(std::cin >> std::ws, _msg); // ввод сообщения с пробелами
-                // отправка сообщения всем зарегистрированным пользователям
+                std::getline(std::cin >> std::ws, _msg); // РІРІРѕРґ СЃРѕРѕР±С‰РµРЅРёСЏ СЃ РїСЂРѕР±РµР»Р°РјРё
+                // РѕС‚РїСЂР°РІРєР° СЃРѕРѕР±С‰РµРЅРёСЏ РІСЃРµРј Р·Р°СЂРµРіРёСЃС‚СЂРёСЂРѕРІР°РЅРЅС‹Рј РїРѕР»СЊР·РѕРІР°С‚РµР»СЏРј
                 sendMessageToAll(std::make_shared<Message>(getCurrentUserLogin(), "ALL", _msg));
                 _menuState = MENU_CHAT_WITH_ALL_USERS_SCREEN;
 
@@ -288,7 +288,7 @@ void Chat::startChat()
                     if (networkStatus == 0) {
 
                         std::cout << "input message > ";
-                        std::getline(std::cin >> std::ws, _msg); // ввод сообщения с пробелами
+                        std::getline(std::cin >> std::ws, _msg); // РІРІРѕРґ СЃРѕРѕР±С‰РµРЅРёСЏ СЃ РїСЂРѕР±РµР»Р°РјРё
                         networkStatus = _server.Write(_msg);
                     }
                     
@@ -310,7 +310,7 @@ void Chat::startChat()
                     if (networkStatus == 0) {
 
                         std::cout << "input message > ";
-                        std::getline(std::cin >> std::ws, _msg); // ввод сообщения с пробелами
+                        std::getline(std::cin >> std::ws, _msg); // РІРІРѕРґ СЃРѕРѕР±С‰РµРЅРёСЏ СЃ РїСЂРѕР±РµР»Р°РјРё
                         networkStatus = _client.Write(_msg);
                         //_client.History();
                         std::cout << "waiting for response... ";
