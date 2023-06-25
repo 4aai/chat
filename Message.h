@@ -13,7 +13,6 @@ private:
 	std::string _text;
 	std::string _sender;
 	std::string _receiver;
-	// time
-	// date
+
 };
 

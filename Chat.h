@@ -1,15 +1,21 @@
 #pragma once
 #include <iostream>
+#include <iomanip>
+#include <memory>
 #include "Message.h"
 #include "User.h"
 #include <vector>
 
+#include "NetworkClient.h"
+#include "NetworkServer.h"
+
 class Chat
 {
-
 public:
 	Chat();
 	~Chat();
+
+	void startChat();
 
 	void createUser(std::shared_ptr<User> user);
 	void createAdminUser(std::shared_ptr<User> user);
@@ -37,5 +43,6 @@ private:
 
 	std::vector<std::shared_ptr<Message>> _messages;
 	std::vector<std::shared_ptr<User>> _users;
+
 };
 
