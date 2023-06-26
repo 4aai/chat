@@ -29,8 +29,8 @@ private:
 	WSADATA _WSADATA;
 
 	int _iResult = 0;
-	SOCKET listenSock_ = 0, clientSock_ = 0;
-	sockaddr_in listenAddr_{}, clientAddr_{};
+	SOCKET _L_SOCKET = 0, _C_SOCKET = 0;
+	sockaddr_in _L_ADRESS{}, _C_ADRESS{};
 	char _R_BUF[BUF]{};
 	
 
