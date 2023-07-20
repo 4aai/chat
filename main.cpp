@@ -7,6 +7,9 @@ int main()
 
     // добавим несколько пользователей
     chat->createAdminUser(std::make_shared<User>("God",     "admin",        "root"));
+    chat->createAdminUser(std::make_shared<User>("God2",     "root",        "root"));
+    chat->createAdminUser(std::make_shared<User>("God3",     "tux",        "root"));
+
     chat->createUser(     std::make_shared<User>("User",    "user",         "123" ));
     chat->createUser(     std::make_shared<User>("Arkadyi", "defaultUser1", "123" ));
     chat->createUser(     std::make_shared<User>("Petr",    "defaultUser2", "123" ));
