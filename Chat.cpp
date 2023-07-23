@@ -121,7 +121,7 @@ void Chat::startChat()
             std::cout << "2. Show users to chating\n";
             std::cout << "3. Log out World\n";
 
-            std::cout << "4. \033[93mUDP Network chat \033[30m\033[106m[experimental]\033[0m\n";
+            std::cout << "4. \033[93mTCP Network chat \033[30m\033[106m[experimental]\033[0m\n";
 
             if (isCurrentUserAdmin())
             {
