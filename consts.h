@@ -1,7 +1,7 @@
 #pragma once
 #include <string>
 
-#define CHAT_VERSION                        "0.0.777 made by Maria & Pavel"
+#define CHAT_VERSION                        "0.0.7778"
 
 #define MENU_FIRST_SCREEN                   0
 #define MENU_LOGIN_SCREEN                   1

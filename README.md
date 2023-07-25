@@ -1,10 +1,3 @@
-## Team
-#### developers:
-- Maria
-- Pavel
-
-#### teamlead:
-- monkey with GPT-4
 
 ## Idea
 #### simple console chat with:
